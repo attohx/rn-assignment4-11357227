@@ -13,14 +13,14 @@ const fJobs = [
 ];
 
 const pJobs = [
-  { id: '1', text: 'Air Cook' },
-  { id: '2', text: 'Painter' },
-  { id: '3', text: 'Car Mechanic' },
-  { id: '4', text: 'Cleaner' },
-  { id: '5', text: 'School Teacher' },
-  { id: '6', text: 'Receptionist' },
-  { id: '7', text: 'Project Launcher' },
-  { id: '8', text: 'Code Specialist' },
+  { id: '1', text: 'Air Cook', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '2', text: 'Painter', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '3', text: 'Car Mechanic', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '4', text: 'Cleaner', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '5', text: 'School Teacher', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '6', text: 'Receptionist', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '7', text: 'Project Launcher', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '8', text: 'Code Specialist', image: 'https://reactnative.dev/img/tiny_logo.png' },
 ];
 
 export default function Index() {
@@ -32,16 +32,17 @@ export default function Index() {
 
   const renderCategoryItem = ({ item }) => (
     <TouchableOpacity style={styles.categoryItem}>
+      <Image source={{ uri: item.image }} style={styles.categoryImage} />
       <View style={styles.categoryTextContainer}>
         <Text style={styles.categoryText}>{item.text}</Text>
         <Text style={styles.categorySubText}>{item.subtext}</Text>
       </View>
-      <Image source={{ uri: item.image }} style={styles.categoryImage} />
     </TouchableOpacity>
   );
 
-  const renderItem = ({ item }) => (
+  const renderPopularJobItem = ({ item }) => (
     <View style={styles.popularJobItem}>
+      <Image source={{ uri: item.image }} style={styles.popularJobImage} />
       <Text style={styles.text}>{item.text}</Text>
     </View>
   );
@@ -95,7 +96,7 @@ export default function Index() {
 
       <FlatList
         data={pJobs}
-        renderItem={renderItem}
+        renderItem={renderPopularJobItem}
         keyExtractor={item => item.id}
         contentContainerStyle={styles.popularJobsList}
       />
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fffff',
+    backgroundColor: '#f7f0e8',
   },
   header: {
     flexDirection: 'row',
@@ -116,14 +117,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     marginTop: 50,
   },
-headerImage: { 
-
-  width: 54, 
-  height: 54,
-  borderRadius: 30,
-
-},
-
+  headerImage: {
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+  },
   miniHeader: {
     marginBottom: 10,
   },
@@ -169,15 +167,20 @@ headerImage: {
     width: '100%',
   },
   popularJobItem: {
-    padding: 10,
-    fontSize: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
     height: 74, // Adjusted height for the popular job cards
     width: 327, // Adjusted width for the popular job cards
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginBottom: 10,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    paddingHorizontal: 10,
+  },
+  popularJobImage: {
+    width: 64,
+    height: 64,
+    borderRadius: 10,
+    marginRight: 10,
   },
   text: {
     fontSize: 18,
@@ -188,24 +191,23 @@ headerImage: {
     marginBottom: 16,
   },
   categoryItem: {
+    flexDirection: 'row', // Align items horizontally
+    alignItems: 'center', // Center items vertically
     width: 280, // Adjusted width for the featured job card
     height: 192,
     marginRight: 10,
     borderRadius: 10,
     backgroundColor: '#ffffff',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
     padding: 10,
   },
   categoryTextContainer: {
-    flex: 1,
-    marginRight: 10,
+    marginLeft: 10, // Add margin to separate image from text
   },
   categoryImage: {
     width: 100,
     height: 100,
     borderRadius: 10,
-    alignSelf: 'flex-end',
+    alignSelf: 'center', // Align image to the center vertically
   },
   categoryText: {
     fontSize: 16,
