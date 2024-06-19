@@ -30,19 +30,26 @@ export default function Index() {
     console.log('Searching for:', searchQuery);
   };
 
-  const renderCategoryItem = ({ item }) => (
-    <TouchableOpacity style={styles.categoryItem}>
-      <Image source={{ uri: item.image }} style={styles.categoryImage} />
-      <View style={styles.categoryTextContainer}>
-        <Text style={styles.categoryText}>{item.text}</Text>
-        <Text style={styles.categorySubText}>{item.subtext}</Text>
-        <View style={styles.bottomRow}>
-          <Text style={styles.priceText}>{item.price}</Text>
-          <Text style={styles.locationText}>{item.location}</Text>
+  const renderCategoryItem = ({ item, index }) => {
+    // Define an array of background colors
+    const colors = ['#fca8a8', '#a8fcdb', '#a8b3fc', '#fca8f5', '#fcd3a8', '#d5a8fc', '#a8fcf6', '#fcf6a8'];
+    // Calculate background color based on index
+    const backgroundColor = colors[index % colors.length];
+
+    return (
+      <TouchableOpacity style={[styles.categoryItem, { backgroundColor }]}>
+        <Image source={{ uri: item.image }} style={styles.categoryImage} />
+        <View style={styles.categoryTextContainer}>
+          <Text style={styles.categoryText}>{item.text}</Text>
+          <Text style={styles.categorySubText}>{item.subtext}</Text>
+          <View style={styles.bottomRow}>
+            <Text style={styles.priceText}>{item.price}</Text>
+            <Text style={styles.locationText}>{item.location}</Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
-  );
+      </TouchableOpacity>
+    );
+  };
 
   const renderPopularJobItem = ({ item }) => (
     <View style={styles.popularJobItem}>
@@ -201,8 +208,13 @@ const styles = StyleSheet.create({
     height: 192,
     marginRight: 10,
     borderRadius: 10,
-    backgroundColor: '#ffffff',
     padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    // No backgroundColor here
   },
   categoryTextContainer: {
     marginLeft: 10,

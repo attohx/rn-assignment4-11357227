@@ -1,3 +1,5 @@
+## Student ID - 11357227 
+
 # Job Search App
 
 This is a mobile application built with React Native that allows users to search for jobs and view featured and popular job listings.
@@ -12,7 +14,14 @@ This is a mobile application built with React Native that allows users to search
 
 ## Screenshots
 
-Insert screenshots here if available.
+![Alt text](./shot1.jpeg)
+![Alt text](./shot2.jpeg)
+![Alt text](./shot3.jpeg)
+![Alt text](./shot4.jpeg)
+![Alt text](./shot5.jpeg)
+![Alt text](./shot6.jpeg)
+
+
 
 ## Installation
 
@@ -56,12 +65,6 @@ To run the application locally, follow these steps:
 
 5. The application will start on your emulator or connected device.
 
-## Dependencies
-
-- `react`: Version X.X.X
-- `react-native`: Version X.X.X
-- `react-native-vector-icons`: Version X.X.X
-- Other dependencies as used in the project.
 
 ## Contributing
 
@@ -69,12 +72,4 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## Authors
 
-- [Your Name](https://github.com/yourusername) - Developer
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize this README template further based on additional features, specific instructions, or any other relevant information about your application. Adjust the sections and content to best fit the details and structure of your project.
+- [Nathan Attoh](https://github.com/attohx) - Developer
