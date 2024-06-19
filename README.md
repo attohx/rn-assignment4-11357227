@@ -18,8 +18,8 @@ This is a mobile application built with React Native that allows users to search
 ![Alt text](./shot2.jpeg)
 ![Alt text](./shot3.jpeg)
 ![Alt text](./shot4.jpeg)
-![Alt text](./shot5.jpeg)
-![Alt text](./shot6.jpeg)
+![Alt text](./shot5.jpg)
+![Alt text](./shot6.jpg)
 
 
 
