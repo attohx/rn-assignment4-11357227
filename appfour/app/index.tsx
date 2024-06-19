@@ -1,15 +1,11 @@
-import { Text, View } from "react-native";
+import LoginApp from "./LoginApp";
+import UserApp from "./UserApp";
 
-export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
-}
+// uncomment the following line to show StateOnly example
+//export default LoginApp;
+
+//Comment out below when above is uncommented
+export default UserApp;
+
+// remember to hit 'r' to reload (or restart) the app
+// when you switch between StateOnlyApp and ContextApiApp
