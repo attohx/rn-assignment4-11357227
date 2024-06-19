@@ -70,7 +70,7 @@ export default function Index() {
           onChangeText={setSearchQuery}
         />
         <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
-          <Icon name="options-outline" size={20} color="#FFFFFF"/>
+          <Icon name="options-outline" size={20} color="#000000"/>
         </TouchableOpacity>
       </View>
 
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     height: 50,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#ffff',
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
