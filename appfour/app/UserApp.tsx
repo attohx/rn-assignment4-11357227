@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, StyleSheet, FlatList, Image, TouchableOpacity, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import the icon library
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const fJobs = [
-  { id: '1', text: 'Software Engineer', subtext: 'Facebook', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '2', text: 'AI Developer', subtext: 'Google', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '3', text: 'Web Developer', subtext: 'Sakai', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '5', text: 'Bank Operator', subtext: 'Absa', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '6', text: 'Database Developer', subtext: 'Facebook', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '7', text: 'Data Analyst', subtext: 'Cisco', image: 'https://reactnative.dev/img/tiny_logo.png' },
-  { id: '8', text: 'CyberSecurity Analyst', subtext: 'Cisco', image: 'https://reactnative.dev/img/tiny_logo.png' },
+  { id: '1', text: 'Software Engineer', subtext: 'Facebook', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$120,000', location: 'Menlo Park, CA' },
+  { id: '2', text: 'AI Developer', subtext: 'Google', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$135,000', location: 'Mountain View, CA' },
+  { id: '3', text: 'Web Developer', subtext: 'Sakai', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$100,000', location: 'Remote' },
+  { id: '5', text: 'Bank Operator', subtext: 'Absa', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$80,000', location: 'Johannesburg, SA' },
+  { id: '6', text: 'Database Developer', subtext: 'Facebook', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$110,000', location: 'Menlo Park, CA' },
+  { id: '7', text: 'Data Analyst', subtext: 'Cisco', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$95,000', location: 'San Jose, CA' },
+  { id: '8', text: 'CyberSecurity Analyst', subtext: 'Cisco', image: 'https://reactnative.dev/img/tiny_logo.png', price: '$105,000', location: 'San Francisco, CA' },
 ];
 
 const pJobs = [
@@ -36,6 +36,10 @@ export default function Index() {
       <View style={styles.categoryTextContainer}>
         <Text style={styles.categoryText}>{item.text}</Text>
         <Text style={styles.categorySubText}>{item.subtext}</Text>
+        <View style={styles.bottomRow}>
+          <Text style={styles.priceText}>{item.price}</Text>
+          <Text style={styles.locationText}>{item.location}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -61,7 +65,7 @@ export default function Index() {
         <TextInput
           style={styles.input}
           placeholder="Search a job or position"
-          placeholderTextColor="rgba(0,0,0,0.4)" // Transparent gray color
+          placeholderTextColor="rgba(0,0,0,0.4)"
           value={searchQuery}
           onChangeText={setSearchQuery}
         />
@@ -153,7 +157,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 10,
     backgroundColor: '#ffffff',
-    color: '#000000', // Text color of the input
+    color: '#000000',
   },
   searchButton: {
     height: 50,
@@ -169,16 +173,16 @@ const styles = StyleSheet.create({
   popularJobItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: 74, // Adjusted height for the popular job cards
-    width: 327, // Adjusted width for the popular job cards
+    height: 74,
+    width: 327,
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginBottom: 10,
     paddingHorizontal: 10,
   },
   popularJobImage: {
-    width: 64,
-    height: 64,
+    width: 40,
+    height:40,
     borderRadius: 10,
     marginRight: 10,
   },
@@ -191,9 +195,9 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   categoryItem: {
-    flexDirection: 'row', // Align items horizontally
-    alignItems: 'center', // Center items vertically
-    width: 280, // Adjusted width for the featured job card
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 280,
     height: 192,
     marginRight: 10,
     borderRadius: 10,
@@ -201,13 +205,13 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   categoryTextContainer: {
-    marginLeft: 10, // Add margin to separate image from text
+    marginLeft: 10,
+    flex: 1,
   },
   categoryImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
-    alignSelf: 'center', // Align image to the center vertically
+    width: 55,
+    height: 55,
+    borderRadius: 25,
   },
   categoryText: {
     fontSize: 16,
@@ -218,6 +222,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     marginBottom: 10,
+  },
+  bottomRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  priceText: {
+    fontSize: 14,
+    color: '#333',
+  },
+  locationText: {
+    fontSize: 14,
+    color: '#333',
   },
   popularJobsHeader: {
     flexDirection: 'row',
@@ -236,7 +254,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   seeAllText: {
-    color: '#666', // Light gray color for see all text
-    fontSize: 12, // Smaller font size
+    color: '#666',
+    fontSize: 12,
   },
 });
